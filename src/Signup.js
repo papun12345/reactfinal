@@ -10,7 +10,7 @@ class Signup extends React.Component{
   toggleButtonState = () => {
     let { name, email } = this.state;
     let context = this;
-    axios.get(`/Subha_Spring_Test_1/employees/`)
+    axios.get(`http://18.188.202.13:8080/Subha_Spring_Test_1/employees/`)
       .then(res => {
         const persons = res.data;
         console.log('response',res.data);
