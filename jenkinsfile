@@ -31,7 +31,7 @@ pipeline {
                    withSonarQubeEnv('Sonar') {
                   
               sh 'npm test -- --coverage'
-              sh '${scannerHome}/bin/sonar-scanner -Dproject.settings=./sonar.properties'
+              sh '${scannerHome}/bin/sonar-scanner -Dproject.settings=./Sonar.properties'
                   }
               }
         }
