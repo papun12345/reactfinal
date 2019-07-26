@@ -53,9 +53,9 @@ pipeline {
        }
         stage ('Deploy') {
             steps {
-              withCredentials([file(credentialsId: 'angular-react-deployment-server', variable: 'deployment_server')]) {
-                   sh 'scp -v -i ${deployment_server} build.zip http://ec2-13-233-78-62.ap-south-1.compute.amazonaws.com:7000'
-                   sh 'ssh -v -i ${deployment_server} http://ec2-13-233-78-62.ap-south-1.compute.amazonaws.com:7000 "unzip -o build.zip -d reactApp;pm2 start "serve -p 7000 ." --name "reactapp""'
+              withCredentials([file(credentialsId: 'tomcat8_ashish_team', variable: 'deployment_server')]) {
+                   sh 'scp -v -i ${deployment_server} build.zip ubuntu@13.233.78.62:7000'
+                   sh 'ssh -v -i ${deployment_server} ubuntu@13.233.78.62:7000 "unzip -o build.zip -d reactApp;pm2 start "serve -p 7000 ." --name "reactapp""'
                   
                }
             }
